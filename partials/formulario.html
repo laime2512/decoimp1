@@ -1,0 +1,93 @@
+<!-- Modal Formulario -->
+<div class="modal fade" id="consultaModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <!-- Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Formulario de Consultas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <form id="formConsulta">
+          <div class="row g-3">
+            <!-- Nombre -->
+            <div class="col-md-6">
+              <label class="form-label">Nombre Completo *</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <!-- Empresa -->
+            <div class="col-md-6">
+              <label class="form-label">Empresa</label>
+              <input type="text" class="form-control">
+            </div>
+
+            <!-- Departamento -->
+            <div class="col-md-6">
+              <label class="form-label">Departamento / Ciudad *</label>
+              <select class="form-select" required>
+                <option value="" selected disabled>Seleccione...</option>
+                <option>La Paz</option>
+                <option>Cochabamba</option>
+                <option>Santa Cruz</option>
+                <option>Potosí</option>
+                <option>Oruro</option>
+                <option>Tarija</option>
+                <option>Chuquisaca</option>
+                <option>Beni</option>
+                <option>Pando</option>
+              </select>
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6">
+              <label class="form-label">Email *</label>
+              <input type="email" class="form-control" required>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="col-md-6">
+              <label class="form-label">Teléfono / WhatsApp *</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <!-- Sector -->
+            <div class="col-md-6">
+              <label class="form-label">Sector de Interés</label>
+              <select class="form-select">
+                <option value="" selected disabled>Seleccione...</option>
+                <option>Equipos / Maquinaria</option>
+                <option>Construcción</option>
+                <option>Minería</option>
+                <option>Textil</option>
+                <option>Gastronomía</option>
+                <option>Retail / Comercio</option>
+                <option>Otros</option>
+              </select>
+            </div>
+
+            <!-- Productos -->
+            <div class="col-12">
+              <label class="form-label">Producto(s) de Interés *</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <!-- Mensaje -->
+            <div class="col-12">
+              <label class="form-label">Mensaje</label>
+              <textarea class="form-control" rows="4"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button type="button" class="main-btn btn-hover" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" form="formConsulta" class="main-btn btn-hover">Enviar Consulta</button>
+      </div>
+    </div>
+  </div>
+</div>

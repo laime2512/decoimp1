@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Decoimp || Imports to Bolivia</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.svg"/>
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap-5.0.0-beta2.min.css" />
+    <link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  <body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- ========================= preloader start ========================= -->
+    <div class="preloader">
+      <div class="loader">
+        <div class="spinner">
+          <div class="spinner-container">
+            <div class="spinner-rotator">
+              <div class="spinner-left">
+                <div class="spinner-circle"></div>
+              </div>
+              <div class="spinner-right">
+                <div class="spinner-circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+		<!-- preloader end -->
+		
+    <!-- ========================= header start ========================= -->
+    <div id="header-container"></div>
+    <!-- ========================= header end ========================= -->
+
+    <!-- ========================= hero-section start ========================= -->
+    <div id="home-container"></div>
+    <!-- ========================= hero-section end ========================= -->
+
+    <!-- ========================= client-logo-section start ========================= -->
+    <section class="client-logo-section pt-150">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-logo text-center">
+              <img src="assets/img/client-logo/lineicons.png" alt="">
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-logo text-wrap">
+              <p>Nuestra representación oficial de Yiwu Mulin en China es su mayor garantía.</p>
+              <p>Esto significa:</p>
+              <p>• Acceso Preferencial a miles de fabricantes y proveedores.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-logo text-wrap">
+              <p>• Precios Competitivos al eliminar intermediarios.</p>
+              <p>• Verificación de Calidad directa y confiable.</p>
+              <p>• Contactos Comerciales de alto valor en el corazón industrial de China.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-logo text-center">
+              <img src="assets/img/client-logo/pagebulb.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========================= client-logo-section end ========================= -->
+
+    <!-- ========================= about-section start ========================= -->
+    <div id="about-container"></div>
+    <!-- ========================= about-section end ========================= -->
+
+    <!-- ========================= service-section start ========================= -->
+    <div id="services-container"></div>
+    <!-- ========================= service-section end ========================= -->
+
+    <!-- ========================= counter-up-section start ========================= -->
+    <div id="sectores-container"></div>
+    <!-- ========================= counter-up-section end ========================= -->
+
+    <!-- ========================= cta-section start ========================= -->
+    <section class="cta-section img-bg pt-110 pb-60">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-xl-6 col-lg-7">
+            <div class="section-title mb-50">
+              <h1 class="mb-20 wow fadeInUp" data-wow-delay=".2s">
+                Solicite una asesoría gratuita y una cotización sin compromiso
+              </h1>
+            </div>
+          </div>
+
+          <div class="col-xl-6 col-lg-5">
+            <div class="cta-btn text-lg-end mb-50">
+              <a href="javascript:void(0)" 
+                 class="main-btn btn-hover text-uppercase"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#consultaModal">
+                Consultas Aquí
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========================= cta-section end ========================= -->
+
+    <!-- ========================= footer start ========================= -->
+    <div id="footer-container"></div>
+    <!-- ========================= footer end ========================= -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+      <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="assets/js/bootstrap-5.0.0-beta2.min.js"></script>
+    <script src="assets/js/count-up.min.js"></script>
+    <script src="assets/js/tiny-slider.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/polifill.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Script para cargar componentes -->
+    <script>
+      // Función para cargar componentes HTML
+      function loadComponent(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error('Error loading component:', error));
+      }
+
+      // Cargar todos los componentes cuando la página esté lista
+      document.addEventListener('DOMContentLoaded', function() {
+        loadComponent('header-container', 'partials/header.html');
+        loadComponent('home-container', 'partials/home.html');
+        loadComponent('about-container', 'partials/about.html');
+        loadComponent('services-container', 'partials/services.html');
+        loadComponent('sectores-container', 'partials/sectores.html');
+        loadComponent('footer-container', 'partials/footer.html');
+        
+        // Cargar el modal del formulario
+        fetch('partials/formulario.html')
+          .then(response => response.text())
+          .then(data => {
+            document.body.insertAdjacentHTML('beforeend', data);
+          });
+      });
+    </script>
+  </body>
+</html>
