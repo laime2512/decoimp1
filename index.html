@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html class="no-js" lang="">
+<html class="no-js" lang="es">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Decoimp || Imports to Bolivia</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Security Meta Tags -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.svg"/>
-    <!-- Place favicon.ico in the root directory -->
 
     <!-- ========================= CSS here ========================= -->
     <link rel="stylesheet" href="assets/css/bootstrap-5.0.0-beta2.min.css" />
@@ -140,6 +144,11 @@
     <script src="assets/js/tiny-slider.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/polifill.js"></script>
+    
+    <!-- Security Script (PRIMERO) -->
+    <script src="security/security-utils.js"></script>
+    
+    <!-- Main Script (ÚLTIMO) -->
     <script src="assets/js/main.js"></script>
     
     <!-- Script para cargar componentes -->
@@ -147,28 +156,42 @@
       // Función para cargar componentes HTML
       function loadComponent(elementId, filePath) {
         fetch(filePath)
-          .then(response => response.text())
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Error loading ${filePath}: ${response.status}`);
+            }
+            return response.text();
+          })
           .then(data => {
+            // La seguridad automáticamente sanitizará este contenido
             document.getElementById(elementId).innerHTML = data;
           })
-          .catch(error => console.error('Error loading component:', error));
+          .catch(error => {
+            console.error('Error loading component:', error);
+          });
       }
 
       // Cargar todos los componentes cuando la página esté lista
       document.addEventListener('DOMContentLoaded', function() {
-        loadComponent('header-container', 'partials/header.html');
-        loadComponent('home-container', 'partials/home.html');
-        loadComponent('about-container', 'partials/about.html');
-        loadComponent('services-container', 'partials/services.html');
-        loadComponent('sectores-container', 'partials/sectores.html');
-        loadComponent('footer-container', 'partials/footer.html');
+        const currentPath = window.location.pathname;
+        const basePath = currentPath.includes('/decoimp/') ? '/decoimp/' : '/';
+        
+        console.log('🔒 Loading components with security...');
+        
+        loadComponent('header-container', basePath + 'partials/header.html');
+        loadComponent('home-container', basePath + 'partials/home.html');
+        loadComponent('about-container', basePath + 'partials/about.html');
+        loadComponent('services-container', basePath + 'partials/services.html');
+        loadComponent('sectores-container', basePath + 'partials/sectores.html');
+        loadComponent('footer-container', basePath + 'partials/footer.html');
         
         // Cargar el modal del formulario
-        fetch('partials/formulario.html')
+        fetch(basePath + 'partials/formulario.html')
           .then(response => response.text())
           .then(data => {
             document.body.insertAdjacentHTML('beforeend', data);
-          });
+          })
+          .catch(error => console.error('Error loading modal:', error));
       });
     </script>
   </body>
