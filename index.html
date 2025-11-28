@@ -6,11 +6,6 @@
     <title>Decoimp || Imports to Bolivia</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <!-- Security Meta Tags -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com;">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.svg"/>
 
     <!-- ========================= CSS here ========================= -->
@@ -144,16 +139,11 @@
     <script src="assets/js/tiny-slider.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/polifill.js"></script>
-    
-    <!-- Security Script (PRIMERO) -->
-    <script src="security/security-utils.js"></script>
-    
-    <!-- Main Script (ÚLTIMO) -->
     <script src="assets/js/main.js"></script>
     
-    <!-- Script para cargar componentes -->
+    <!-- Script SIMPLE para cargar componentes -->
     <script>
-      // Función para cargar componentes HTML
+      // Función simple para cargar componentes HTML
       function loadComponent(elementId, filePath) {
         fetch(filePath)
           .then(response => {
@@ -163,7 +153,6 @@
             return response.text();
           })
           .then(data => {
-            // La seguridad automáticamente sanitizará este contenido
             document.getElementById(elementId).innerHTML = data;
           })
           .catch(error => {
@@ -176,7 +165,7 @@
         const currentPath = window.location.pathname;
         const basePath = currentPath.includes('/decoimp/') ? '/decoimp/' : '/';
         
-        console.log('🔒 Loading components with security...');
+        console.log('Loading components from:', basePath);
         
         loadComponent('header-container', basePath + 'partials/header.html');
         loadComponent('home-container', basePath + 'partials/home.html');
@@ -194,5 +183,9 @@
           .catch(error => console.error('Error loading modal:', error));
       });
     </script>
+    <!-- Al final del body, DESPUÉS de main.js -->
+<script src="assets/js/main.js"></script>
+<!-- Security Script (después de todo) -->
+<script src="security/security-utils.js"></script>
   </body>
 </html>
