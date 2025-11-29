@@ -5,66 +5,56 @@
         <div class="col-xl-3 col-md-6">
           <div class="footer-widget">
             <div class="logo mb-35">
-              <a href="index.html"> <img src="assets/img/logo/logo_decoimp.png" alt="Logo" class="img-fluid" style="width: 80%;"> </a>
+              <a href="index.html"> <img src="assets/img/logo/loguito.png" alt="Logo" class="img-fluid" style="width: 80%;"> </a>
             </div>
             <p class="desc mb-35">Su puente de importación entre China y Bolivia.</p>
             <ul class="socials">
-              <li>
-                <a href="jvascript:void(0)"> <i class="lni lni-facebook-filled"></i> </a>
-              </li>
-              <li>
-                <a href="jvascript:void(0)"> <i class="lni lni-twitter-filled"></i> </a>
-              </li>
-              <li>
-                <a href="jvascript:void(0)"> <i class="lni lni-instagram-filled"></i> </a>
-              </li>
-              <li>
-                <a href="jvascript:void(0)"> <i class="lni lni-linkedin-original"></i> </a>
-              </li>
+              <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
+              <li><a href="#"><i class="lni lni-twitter-filled"></i></a></li>
+              <li><a href="#"><i class="lni lni-instagram-filled"></i></a></li>
+              <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
             </ul>
           </div>
         </div>
 
         <div class="col-xl-2 offset-xl-1 col-md-5 offset-md-1 col-sm-6">
           <div class="footer-widget">
-            <h3>Link</h3>
+            <h3>Enlaces</h3>
             <ul class="links">
-              <li> <a href="javascript:void(0)">Inicio</a> </li>
-              <li> <a href="javascript:void(0)">Nosotros</a> </li>
-              <li> <a href="javascript:void(0)">Servicios</a> </li>
-              <li> <a href="javascript:void(0)">Clientes</a> </li>
-              <li> <a href="javascript:void(0)">Contactanos</a> </li>
+              <li><a href="#home">Inicio</a></li>
+              <li><a href="#about">Nosotros</a></li>
+              <li><a href="#service">Servicios</a></li>
+              <li><a href="#sectores">Sectores</a></li>
+              <li><a href="#contact">Contáctanos</a></li>
             </ul>
           </div>
         </div>
 
         <div class="col-xl-3 col-md-6 col-sm-6">
           <div class="footer-widget">
-            <h3>Services</h3>
+            <h3>Servicios</h3>
             <ul class="links">
-              <li> <a href="javascript:void(0)">Asesoramiento en Exportación</a> </li>
-              <li> <a href="javascript:void(0)">Búsqueda y Validación de Proveedores</a> </li>
-              <li> <a href="javascript:void(0)">Almacenamiento</a> </li>
-              <li> <a href="javascript:void(0)">Logística Interna y Fletes</a> </li>
-              <li> <a href="javascript:void(0)">Hospedaje y Logística para Viajes</a> </li>
-              <li> <a href="javascript:void(0)">Gestión de Fletes Internacionales</a> </li>
-              <li> <a href="javascript:void(0)">Trámites Aduaneros en Chile y Bolivia</a> </li>
+              <li><a href="#" onclick="scrollToSection('#service')">Asesoramiento en Exportación</a></li>
+              <li><a href="#" onclick="scrollToSection('#service')">Búsqueda y Validación de Proveedores</a></li>
+              <li><a href="#" onclick="scrollToSection('#service')">Almacenamiento</a></li>
+              <li><a href="#" onclick="scrollToSection('#service')">Logística Interna y Fletes</a></li>
+              <li><a href="#" onclick="scrollToSection('#service')">Hospedaje y Logística para Viajes</a></li>
+              <li><a href="#" onclick="scrollToSection('#service')">Gestión de Fletes Internacionales</a></li>
+              <li><a href="#" onclick="scrollToSection('#service')">Trámites Aduaneros en Chile y Bolivia</a></li>
             </ul>
           </div>
         </div>
 
         <div class="col-xl-3 col-md-6">
           <div class="footer-widget">
-            <h3>Contact</h3>
+            <h3>Contacto</h3>
             <ul>
-              <li>+059 77889911</li>
-              <li>saul.bppb@gmail.com</li>
+              <li><a href="tel:+59177889911">+591 77889911</a></li>
+              <li><a href="mailto:saul.bppb@gmail.com">saul.bppb@gmail.com</a></li>
               <li>La Paz - Bolivia</li>
             </ul>
             <div class="contact_map" style="width: 100%; height: 150px; margin-top: 25px;">
-              <div class="gmap_canvas">
-                <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Mission%20District%2C%20San%20Francisco%2C%20CA%2C%20USA&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" style="width: 100%;"></iframe>
-              </div>
+              <iframe src="https://maps.google.com/maps?q=La+Paz+Bolivia&output=embed" style="width: 100%; height: 100%; border:0"></iframe>
             </div>
           </div>
         </div>
@@ -72,7 +62,26 @@
     </div>
 
     <div class="copy-right">
-      <p>Design and Developed by © Copyright <a href="https://themewagon.com" target="_blank"> DECOIMP </a> [2025]</p>
+      <p>Design and Developed by © Copyright <a href="index.html">DECOIMP</a> [2025]</p>
     </div>
   </div>
 </footer>
+
+<script>
+// Función simple para scroll a secciones
+function scrollToSection(sectionId) {
+    const element = document.querySelector(sectionId);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Hacer todos los enlaces del footer funcionales
+document.querySelectorAll('.footer .links a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = this.getAttribute('href');
+        scrollToSection(target);
+    });
+});
+</script>
