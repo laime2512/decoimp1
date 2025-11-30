@@ -6,6 +6,10 @@
     <title>Decoimp || Imports to Bolivia</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="http://localhost/decoimp/" />
+    
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.svg"/>
 
     <!-- ========================= CSS here ========================= -->
@@ -140,10 +144,13 @@
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/polifill.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="security/security-utils.js"></script>
-    <!-- Script SIMPLE para cargar componentes -->
+    
+    <!-- Router para URLs limpias -->
+    <script src="js/router.js"></script>
+    
+    <!-- Script para cargar componentes -->
     <script>
-      // Función simple para cargar componentes HTML
+      // Función para cargar componentes HTML
       function loadComponent(elementId, filePath) {
         fetch(filePath)
           .then(response => {
@@ -181,6 +188,13 @@
             document.body.insertAdjacentHTML('beforeend', data);
           })
           .catch(error => console.error('Error loading modal:', error));
+          
+        // Inicializar router después de cargar componentes
+        setTimeout(() => {
+          if (window.appRouter) {
+            window.appRouter.init();
+          }
+        }, 500);
       });
     </script>
   </body>

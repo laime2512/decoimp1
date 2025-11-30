@@ -1,3 +1,5 @@
+RewriteEngine On
+
 # SECURITY HEADERS
 <IfModule mod_headers.c>
     Header always set X-XSS-Protection "1; mode=block"
@@ -24,3 +26,43 @@
 
 # PREVENIR LISTADO DE DIRECTORIOS
 Options -Indexes
+
+# COMPRESIÓN GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript
+</IfModule>
+
+# CACHE
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ========================= REWRITE RULES FOR CLEAN URLs =========================
+
+# Si la solicitud no es para un archivo existente
+RewriteCond %{REQUEST_FILENAME} !-f
+# Si la solicitud no es para un directorio existente  
+RewriteCond %{REQUEST_FILENAME} !-d
+# Si la solicitud no es para un archivo con extensión
+RewriteCond %{REQUEST_FILENAME} !-l
+
+# Redireccionar todas las rutas a index.html
+RewriteRule ^(.*)$ index.html [QSA,L]
+
+# Redireccionar root a index.html
+RewriteRule ^$ index.html [L]
+
+# ========================= SPECIFIC ROUTES =========================
+# (Opcional) Puedes agregar rutas específicas si lo necesitas
+# RewriteRule ^service/?$ index.html#service [NC,L]
+# RewriteRule ^about/?$ index.html#about [NC,L]
+# RewriteRule ^sectores/?$ index.html#sectores [NC,L]
+# RewriteRule ^contact/?$ index.html#contact [NC,L]
